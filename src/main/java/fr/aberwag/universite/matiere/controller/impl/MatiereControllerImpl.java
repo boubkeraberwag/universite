@@ -63,6 +63,28 @@ public class MatiereControllerImpl implements IMatiereController {
 		}
 	}
 
+	@Override
+	@GetMapping("/modifier-matiere")
+	public String modifierMatiereFormulaire(Model model,@RequestParam("id") Integer id) {
+		Matiere m = matiereService.findOne(id);
+		model.addAttribute("matiere", m);
+		
+		List<Enseignant> liste = enseignantService.findAll();
+		model.addAttribute("listeEnseignants", liste);
+		return "matiere/modifier-matiere-formulaire";
+	}
+
+	@Override
+	@PostMapping("valider-matiere-modif")
+	public String ValiderModification(Model model, @ModelAttribute("matiere") Matiere matiere) {
+		Matiere m = matiereService.update(matiere);
+		if(m == null) {
+			return "redirect:/modifier-matiere";
+		}else {
+			return "redirect:/matieres";
+		}
+	}
+
 }
 
 

@@ -9,4 +9,6 @@ public interface IMatiereService {
 	public Matiere findOne(Integer id);
 	
 	public Matiere save(Matiere matiere);
+	
+	public Matiere update(Matiere matiere);
 }

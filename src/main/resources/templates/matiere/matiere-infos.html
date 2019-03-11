@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1"/>
+<meta charset="UTF-8"/>
 <title>Insert title here</title>
 </head>
 <body>
@@ -16,5 +16,7 @@
 			<span  th:text="${matiere.enseignant.prenom}"></span>
 		</li>
 	</ul>
+	
+	<h1> <a th:href="@{modifier-matiere(id=${matiere.id})}">Modifier la matière</a></h1>
 </body>
 </html>

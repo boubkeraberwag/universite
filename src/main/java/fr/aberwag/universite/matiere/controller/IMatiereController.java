@@ -12,4 +12,8 @@ public interface IMatiereController {
 	public String ajouterMatiereFormulaire(Model model);
 	
 	public String validerMatiere(Model model, Matiere matiere);
+
+	public String modifierMatiereFormulaire(Model model, Integer id);
+
+	public String ValiderModification(Model model, Matiere matiere);
 }
