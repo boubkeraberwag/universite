@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>LEs enseignants</title>
+<link rel="stylesheet" th:href="@{/css/enseignant/enseignants.css}" />
+</head>
+<body>
+	<h1>Liste des enseignants</h1>
+<h1><a th:href="@{ajouter-enseignant}">Ajouter un enseignant</a></h1>
+	<div>
+		<div class="container" th:each="en : ${enseignants}">
+			<p th:text="${en.nom}"></p>
+			<p th:text="${en.prenom}"></p>
+			<p th:text="${#dates.format(en.dateEmbauche, 'dd MM yyyy')}"></p>
+			<p>
+				<a th:href="@{enseignant-infos(id=${en.id})}">
+					<img th:src="${en.photo}" alt="photo" />
+				</a>
+			</p>
+		</div>
+
+	</div>
+</body>
+</html>

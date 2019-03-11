@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Information Enseignant</title>
+</head>
+<body>
+<h1>Information Enseignant</h1>
+
+<div>
+	<p th:text="${enseignant.nom}"></p>
+	<p th:text="${enseignant.prenom}"></p>
+	<ul>
+		<li th:text="${enseignant.numero}"></li>
+		<li th:text="${enseignant.dateNaissance}"></li>
+		<li th:text="${enseignant.dateEmbauche}"></li>
+		<li th:text="${enseignant.sexe}"></li>
+		<li th:text="${enseignant.grade}"></li>
+	</ul>
+	<a th:href="@{modifier-enseignant(id=${enseignant.id})}"><img th:src="${enseignant.photo}" /></a>
+</div>
+
+</body>
+</html>

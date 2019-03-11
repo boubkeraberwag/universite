@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/enseignant/ajout-enseignant.css}"/>
+</head>
+<body>
+<body>
+	<h1>Modifier un enseignant</h1>
+	
+	<div>
+	<form id="formulaire" th:action="@{valider-modification-enseignant}" th:object="${enseignant}" method="POST">
+	<input type="hidden" id="id" th:field="*{id}"/>
+	<label>Mr:</label>
+		<input type="radio" id="mr" th:field="*{sexe}" value="M"/>
+		
+		<label>Mme:</label>
+		<input type="radio" id="mme" th:field="*{sexe}" value="F"/>
+		
+		<label>Nom:</label>
+		<input type="text" id="nom" th:field="*{nom}"/>
+		
+		<label>prenom:</label>
+		<input type="text" id="prenom" th:field="*{prenom}"/>
+		
+		<label>numero:</label>
+		<input type="number" id="numero" th:field="*{numero}"/>
+		
+		<label>datee de naissance:</label>
+		<input type="date" id="dateNaissance" th:field="*{dateNaissance}"/>
+		
+		<label>date embauche:</label>
+		<input type="date" id="dateEmbauche" th:field="*{dateEmbauche}"/>
+	
+		<label>grade:</label>
+		<input type="text" id="grade" th:field="*{grade}"/>
+	
+		<label>photo:</label>
+		<input type="text" id="photo" th:field="*{photo}"/>
+		
+	<input type="button" value="Valider" onclick="validerLeFormulaire();"/>
+	</form>
+	
+	</div>
+	
+	<script 
+		type="text/javascript"
+		th:src="@{/js/enseignant/validation-enseignant.js}">
+	</script>
+</body>
+</html>

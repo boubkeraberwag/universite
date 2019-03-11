@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1 th:text="${matiere.nom}"></h1>
+	<ul>
+		<li th:text="${matiere.numero}"></li>
+		<li th:text="${matiere.coef}"></li>
+		<li th:text="${matiere.enseignant.nom + ' ' + matiere.enseignant.prenom}"></li>
+		<li>
+			<span  th:text="${matiere.enseignant.nom}"></span> 
+			<span  th:text="${matiere.enseignant.prenom}"></span>
+		</li>
+	</ul>
+</body>
+</html>

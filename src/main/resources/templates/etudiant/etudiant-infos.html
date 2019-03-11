@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li th:text="${etudiant.nom}"></li>
+			<li th:text="${etudiant.prenom}"></li>
+			<li th:text="${etudiant.numero}"></li>
+			<li th:text="${etudiant.dateNaissance}"></li>
+			<li th:text="${etudiant.sexe}"></li>
+		</ul>
+		<img th:src="${etudiant.photo}"/>
+		
+		<div><a th:href="@{modifier-etudiant(id=${etudiant.id})}"	>Modifier</a></div>
+		<div><a th:href="@{supprimer-etudiant(id=${etudiant.id})}"	>Supprimer</a></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+	<tr th:each="matiere : ${matieres}">
+		<td th:text="${matiere.id}"></td>
+		<td th:text="${matiere.nom}"></td>
+		<td th:text="${matiere.numero}"></td>
+		<td th:text="${matiere.coef}"></td>
+		<td th:text="${matiere.enseignant.nom}"></td>
+		<td th:text="${matiere.enseignant.prenom}"></td>
+		<td><a th:href="@{matiere-infos(id=${matiere.id})}">Voir</a></td>
+	</tr>
+	</table>
+</body>
+</html>
