@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1><a th:href="@{ajouter-matiere}">AJouter une Matière</a></h1>
 	<table>
 	<tr th:each="matiere : ${matieres}">
 		<td th:text="${matiere.id}"></td>

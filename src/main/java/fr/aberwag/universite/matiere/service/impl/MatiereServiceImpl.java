@@ -27,4 +27,10 @@ public class MatiereServiceImpl implements IMatiereService {
 		return m;
 	}
 
+	@Override
+	public Matiere save(Matiere matiere) {
+		Matiere m = matiereRepository.save(matiere);
+		return m;
+	}
+
 }
