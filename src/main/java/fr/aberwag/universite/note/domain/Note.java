@@ -31,7 +31,6 @@ public class Note {
 		return note;
 	}
 
-
 	public void setNote(Double note) {
 		this.note = note;
 	}
