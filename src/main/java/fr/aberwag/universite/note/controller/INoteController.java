@@ -4,4 +4,6 @@ import org.springframework.ui.Model;
 
 public interface INoteController {
 	public String findAll(Model model);
+	
+	public String addNote(Model model);
 }
