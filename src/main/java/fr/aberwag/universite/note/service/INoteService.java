@@ -8,4 +8,6 @@ public interface INoteService {
 	public List<Note> findAll();
 	
 	public Note save(Note note);
+	
+	public Note findOne(Integer idEtudiant, Integer idMatiere);
 }

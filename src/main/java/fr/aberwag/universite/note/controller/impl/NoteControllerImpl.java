@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.aberwag.universite.etudiant.domain.Etudiant;
 import fr.aberwag.universite.etudiant.service.impl.EtudiantServiceImpl;
@@ -67,9 +68,11 @@ public class NoteControllerImpl implements INoteController{
 		// Construire un objet NotePK
 		NotePK npk = new NotePK();
 		// lui affecter l'ID de l'etudiant
-		npk.setEtudiant(note.getEtudiant().getId()); 
+		Integer idEtudiant = note.getEtudiant().getId();
+		npk.setEtudiant(idEtudiant); 
 		//lui affecter l'ID de la matièere
-		npk.setMatiere(note.getMatiere().getId()); 
+		Integer iDMatiere = note.getMatiere().getId();
+		npk.setMatiere(iDMatiere); 
 		
 		// AFfecter une valeur à la variable notePK
 		// de l'objet note
@@ -78,7 +81,25 @@ public class NoteControllerImpl implements INoteController{
 		return "redirect:/notes";
 	}
 
+	@Override
+	@GetMapping("/modifier-note")
+	public String modifierNoteFormulaire(
+			Model model, 
+			@RequestParam("idMatiere") Integer idMatiere, 
+			@RequestParam("idEtudiant") Integer idEtudiant) {
+		
+		Note n = noteService.findOne(idEtudiant, idMatiere);
+		model.addAttribute("note", n);
+		return "note/mdofier-note";
+	}
+
 }
+
+
+
+
+
+
 
 
 

@@ -11,4 +11,7 @@ public interface INoteController {
 	
 	public String validerAdd(Model model, Note note);
 	
+	public String modifierNoteFormulaire
+		(Model model, Integer idMatiere, Integer idEtudiant);
+	
 }

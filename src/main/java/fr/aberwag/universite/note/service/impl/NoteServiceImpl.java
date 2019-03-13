@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.aberwag.universite.note.domain.Note;
+import fr.aberwag.universite.note.domain.NotePK;
 import fr.aberwag.universite.note.repository.INoteRepository;
 import fr.aberwag.universite.note.service.INoteService;
 
@@ -26,4 +27,21 @@ public class NoteServiceImpl implements INoteService{
 		return n;
 	}
 
+	@Override
+	public Note findOne(Integer idEtudiant, Integer idMatiere) {
+		NotePK npk = new NotePK();
+		npk.setEtudiant(idEtudiant);
+		npk.setMatiere(idMatiere);
+		Note n = noteRepository.getOne(npk);
+		return n;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 }

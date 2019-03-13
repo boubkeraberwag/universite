@@ -20,6 +20,11 @@
 				<td th:text="${note.matiere.nom}"></td>
 				<td th:text="${note.note}"></td>
 				<td th:text="${note.matiere.coef}"></td>
+				<td>
+				<a 
+				th:href="@{modifier-note(idMatiere=${note.matiere.id}, idEtudiant=${note.etudiant.id})}">
+				Modifier
+				</a></td>
 			</tr>
 		</table>
 	</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+		<form 
+			method="POST" 
+			th:action="@{valider-note-modif}" 
+			th:object="${note}">
+
+	<label>Etudiant:
+	<span th:text="${note.etudiant.prenom + ' ' + note.etudiant.nom  }"></span>
+	</label>
+	<input 
+	type="hidden" 
+	name="idEtudiant"
+	th:value="${note.etudiant.id}"
+	/>
+
+	<br/>
+	<label>Matière: 
+		<span th:text="${note.matiere.nom}"></span></label>
+	<input 
+	type="hidden" 
+	name="idMatiere" 
+	th:value="${note.matiere.id}"/>
+	<br/>
+	<label>Note:</label>
+	<input type="number" id="note" name="note" th:field="*{note}"/>
+			
+		<input type="submit" value="Valider"/>
+		</form>
+		
+		
+	</div>
+</body>
+</html>
