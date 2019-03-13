@@ -20,4 +20,10 @@ public class NoteServiceImpl implements INoteService{
 		return liste;
 	}
 
+	@Override
+	public Note save(Note note) {
+		Note n = noteRepository.save(note);
+		return n;
+	}
+
 }

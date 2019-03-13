@@ -2,10 +2,14 @@ package fr.aberwag.universite.note.controller.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.aberwag.universite.etudiant.domain.Etudiant;
 import fr.aberwag.universite.etudiant.service.impl.EtudiantServiceImpl;
@@ -13,10 +17,15 @@ import fr.aberwag.universite.matiere.domain.Matiere;
 import fr.aberwag.universite.matiere.service.impl.MatiereServiceImpl;
 import fr.aberwag.universite.note.controller.INoteController;
 import fr.aberwag.universite.note.domain.Note;
+import fr.aberwag.universite.note.domain.NotePK;
 import fr.aberwag.universite.note.service.impl.NoteServiceImpl;
 
 @Controller
 public class NoteControllerImpl implements INoteController{
+	
+	Logger log = 
+		LoggerFactory.getLogger(NoteControllerImpl.class);
+	
 	@Autowired
 	NoteServiceImpl noteService;
 	
@@ -45,6 +54,28 @@ public class NoteControllerImpl implements INoteController{
 		Note note = new Note();
 		model.addAttribute("note", note);
 		return "note/add-note-formulaire";
+	}
+
+	@Override
+	@PostMapping("/valider-note-add")
+	public String validerAdd(Model model, @ModelAttribute("note") Note note) {
+//		log.info("Note: {}", note.getNote() );
+//		log.info("ID Etudiant : {}", note.getEtudiant().getId());
+//		log.info("ID Matière : {}", note.getMatiere().getId());
+//		log.info("NotePK : {}", note.getNotePK());
+		
+		// Construire un objet NotePK
+		NotePK npk = new NotePK();
+		// lui affecter l'ID de l'etudiant
+		npk.setEtudiant(note.getEtudiant().getId()); 
+		//lui affecter l'ID de la matièere
+		npk.setMatiere(note.getMatiere().getId()); 
+		
+		// AFfecter une valeur à la variable notePK
+		// de l'objet note
+		note.setNotePK(npk);
+		noteService.save(note);
+		return "redirect:/notes";
 	}
 
 }

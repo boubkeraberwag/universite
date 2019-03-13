@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -12,15 +12,15 @@
 			th:object="${note}">
 
 	<label>Etudiant:</label>
-	<select>
+	<select th:field="*{etudiant}">
 	<option 
 		th:each="etudiant : ${etudiants}" 
 		th:value="${etudiant.id}" 
 		th:text="${etudiant.prenom + ' ' + etudiant.nom}"></option>
 	</select>
 	
-	<label>Matière:</label>
-	<select>
+	<label>MatiÃ¨re:</label>
+	<select th:field="*{matiere}">
 		<option 
 		th:each="matiere : ${matieres}" 
 		th:value="${matiere.id}"
