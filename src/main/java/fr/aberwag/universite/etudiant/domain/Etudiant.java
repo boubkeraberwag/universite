@@ -1,15 +1,19 @@
 package fr.aberwag.universite.etudiant.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import fr.aberwag.universite.note.domain.Note;
 
 @Entity
 @Table(name="T_ETUDIANT")
@@ -38,6 +42,9 @@ public class Etudiant {
 	
 	@Column(name="PHOTO")
 	private String photo;
+
+	@OneToMany(mappedBy="etudiant")
+	private List<Note> notes;
 
 	public Integer getId() {
 		return id;
@@ -93,6 +100,14 @@ public class Etudiant {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
 	}
 	
 	
